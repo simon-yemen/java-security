@@ -19,12 +19,15 @@ public class UserCredentialAuthenticationProvider implements AuthenticationProvi
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
         String username = authentication.getName();
         String password = String.valueOf(authentication.getCredentials());
-        
+
         //调用认证服务完成认证
         mfaAcl.validateUserCredential(username, password);
         return new UsernamePasswordAuthenticationToken(username, password);
     }
 
+    /*
+        判断传入的Authentication对象是否使用当前provider来认证
+     */
     public boolean supports(Class<?> aClass) {
         return UserCredentialAuthentication.class.isAssignableFrom(aClass);
     }

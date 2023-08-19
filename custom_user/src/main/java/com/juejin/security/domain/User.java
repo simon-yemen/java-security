@@ -16,8 +16,8 @@ public class User {
     private String username;
     private String password;
 
-    @Enumerated(EnumType.STRING)
-    private PasswordEncoderType passwordEncoderType;
+//    @Enumerated(EnumType.STRING)
+//    private PasswordEncoderType passwordEncoderType;
 
     @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
     private List<Authority> authorities;

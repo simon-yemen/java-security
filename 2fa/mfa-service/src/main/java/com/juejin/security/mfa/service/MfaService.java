@@ -64,6 +64,7 @@ public class MfaService {
         SecurityCode securityCode = securityCodeRepository.findSecurityCodeByUsername(userCredential.getUsername());
         if (!Objects.isNull(securityCode)) {//如果存在安全码，则刷新该安全码
         	securityCode.setCode(generatedSecurityCode);
+            securityCodeRepository.save(securityCode);
         } else {//如果没有找到安全码，则生成并保存一个新的认证码
             SecurityCode code = new SecurityCode();
             code.setUsername(userCredential.getUsername());
