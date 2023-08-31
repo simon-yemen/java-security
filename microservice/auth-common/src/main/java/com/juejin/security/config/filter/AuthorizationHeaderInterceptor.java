@@ -8,6 +8,9 @@ import org.springframework.http.client.ClientHttpResponse;
 
 import java.io.IOException;
 
+/**
+ * template的拦截器，需要设置template.setInterceptors(interceptors);
+ */
 public class AuthorizationHeaderInterceptor implements ClientHttpRequestInterceptor {
 
     @Override

@@ -16,13 +16,14 @@ import java.util.List;
 
 @Slf4j
 @SpringBootApplication
-@EnableFeignClients
+//@EnableFeignClients
 public class Application {
 
     @Primary
     @Bean
     @LoadBalanced
     public RestTemplate getCustomRestTemplate() {
+        // 为RestTemplate添加自定义的拦截器
         RestTemplate template = new RestTemplate();
         List<ClientHttpRequestInterceptor> interceptors = template.getInterceptors();
         if (interceptors == null) {

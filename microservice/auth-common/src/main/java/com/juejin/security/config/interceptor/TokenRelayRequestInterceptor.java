@@ -9,6 +9,9 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 
+/**
+ * 这个时Feign的拦截器，需要在配置文件中配置feign的拦截器
+ */
 @Component
 public class TokenRelayRequestInterceptor implements RequestInterceptor {
 

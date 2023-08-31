@@ -13,6 +13,7 @@ public class AuthorizationHeaderFilter implements Filter {
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain)
             throws IOException, ServletException {
 
+        // 先从请求中获取AuthorizationHeader放入上下文中，微服务之间调用时获取使用
         HttpServletRequest httpServletRequest = (HttpServletRequest) servletRequest;
 
         AuthorizationHeaderHolder.getAuthorizationHeader().setAuthorizationHeader(httpServletRequest.getHeader(AuthorizationHeader.AUTHORIZATION_HEADER));
